@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090b">
+    <link rel="canonical" href="https://makeitvisible.netlify.app/">
+
+    <!-- Favicon (inline SVG, no external file needed) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%239333ea'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial,sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+    <!-- Primary Meta Tags -->
+    <title>Arpan Singh | Websites & Apps for Local Businesses</title>
+    <meta name="title" content="Arpan Singh | Websites & Apps for Local Businesses">
+    <meta name="description" content="Get a premium website and app for your local business. Increase daily sales, beat competitors, and manage everything from your phone. Let's talk!">
+
+    <!-- Open Graph / WhatsApp / Facebook Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeitvisible.netlify.app/">
+    <meta property="og:title" content="🚀 Apne Business Ko Digital Banayein | Arpan Singh">
+    <meta property="og:description" content="Get a premium website and app for your local business. Increase daily sales, beat competitors, and manage everything from your phone. Let's talk!">
+    <!-- TODO: replace with a real branded preview image (1200x630) once ready — stock photo for now -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&h=630&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://makeitvisible.netlify.app/">
+    <meta property="twitter:title" content="🚀 Apne Business Ko Digital Banayein | Arpan Singh">
+    <meta property="twitter:description" content="Get a premium website and app for your local business. Increase daily sales, beat competitors, and manage everything from your phone. Let's talk!">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&h=630&auto=format&fit=crop">
+
+    <!-- Structured data for Google (helps search show a rich result) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Arpan Singh — Web & App Development",
+        "url": "https://makeitvisible.netlify.app/",
+        "description": "Websites and apps for local businesses — shops, clinics, restaurants and more.",
+        "areaServed": ["Bhind", "Gwalior", "Madhya Pradesh", "India"],
+        "sameAs": [
+            "https://instagram.com/as_arpan",
+            "https://linkedin.com/in/as-arpan"
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Phosphor Icons (pinned version — avoids breaking changes from unpinned CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- Google Fonts: Outfit for a modern, geometric look -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            glow: '#93c5fd'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        
+        /* Hide scrollbar for demo slider but keep functionality */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+        body { background-color: #09090b; color: #f4f4f5; overflow-x: hidden; font-family: 'Outfit', sans-serif; }
+        
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .input-glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-glass:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Background blob animation (Tailwind CDN has no default keyframes for these) */
+        @keyframes blob {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob { animation: blob 9s infinite ease-in-out; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+
+        /* Hero entrance animation */
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-blob, .animate-slide-up, .animate-pulse { animation: none !important; }
+        }
+
+        /* Honeypot field — invisible to real visitors, bots fill it */
+        .hp-field { position: absolute; left: -9999px; top: -9999px; height: 0; width: 0; overflow: hidden; }
+
+        /* Chat-style contact form */
+        .chat-window { background: #0d1a17; border: 1px solid rgba(255,255,255,0.06); }
+        .chat-header { background: #17251f; }
+        .chat-bubble-in {
+            background: #1f2e28;
+            border-radius: 4px 16px 16px 16px;
+            max-width: 88%;
+        }
+        .chat-typing-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #7dd3a8; display: inline-block;
+            animation: chat-typing 1.2s infinite ease-in-out;
+        }
+        .chat-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+        .chat-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes chat-typing {
+            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(-3px); }
+        }
+        .chat-input-row input,
+        .chat-input-row select,
+        .chat-input-row textarea {
+            background: #17251f;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #f4f4f5;
+        }
+        .chat-input-row input:focus,
+        .chat-input-row select:focus,
+        .chat-input-row textarea:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+        }
+        .chat-send-btn {
+            background: #22c55e;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .chat-send-btn:hover { background: #16a34a; transform: scale(1.06); }
+        .chat-send-btn:disabled { background: #3f3f46; cursor: not-allowed; transform: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white relative">
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center glass rounded-b-2xl sm:rounded-full sm:mt-4 sm:mx-6 lg:mx-auto">
+            <a href="#" class="text-xl font-bold tracking-wider text-white flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-lg shadow-lg">A</span>
+                Arpan.
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm font-medium">
+                    <i class="ph ph-translate text-lg"></i>
+                    <span id="currentLang">हिंदी</span>
+                </button>
+
+                <a href="#contact" data-i18n="nav_contact" class="px-4 sm:px-5 py-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full transition backdrop-blur-md">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6">
+        <div class="max-w-4xl mx-auto text-center animate-slide-up">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs sm:text-sm font-medium text-zinc-300 mb-8 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span data-i18n="hero_badge">Available for new projects</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+                <span data-i18n="hero_title_1">Taking Your Local Business</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" data-i18n="hero_title_2">
+                    To The Digital World.
+                </span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="hero_desc">
+                Hi, I'm <strong class="text-white font-medium">Arpan Singh</strong>. I make it easy for anyone to take their business online. Whether you own a shop, a clinic, or want to start a company, I build beautiful websites and apps that your customers will love. <strong class="text-zinc-200">No technical knowledge required from your side!</strong>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                    <span data-i18n="btn_contact">Contact Me</span> <i class="ph ph-arrow-right"></i>
+                </a>
+                <a href="https://iarpann.netlify.app" target="_blank" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 text-white font-medium transition-colors flex items-center justify-center gap-2">
+                    <span data-i18n="btn_portfolio">View My Other Website</span> <i class="ph ph-arrow-up-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section (Vertical Scroll Layout) -->
+    <section id="benefits" class="py-24 px-6 relative border-t border-white/5 bg-[#0a0a0c]">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
+            
+            <!-- Sticky Header Left -->
+            <div class="lg:w-2/5 lg:sticky lg:top-36 h-fit">
+                <div class="w-12 h-1 bg-brand-500 mb-6 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight" data-i18n="benefits_title">
+                    How Your Business Evolves
+                </h2>
+                <p class="text-zinc-400 text-lg leading-relaxed" data-i18n="benefits_subtitle">
+                    Understand the real-world advantages of having a digital presence, designed to make your daily operations smoother and highly profitable.
+                </p>
+            </div>
+            
+            <!-- Vertical Scrolling Catalog Right -->
+            <div class="lg:w-3/5 relative">
+                <!-- Vertical Connection Line for Catalog feel -->
+                <div class="absolute left-[3.25rem] top-10 bottom-10 w-0.5 bg-gradient-to-b from-blue-500/20 via-purple-500/20 to-orange-500/20 hidden sm:block"></div>
+                
+                <div class="flex flex-col gap-8 relative z-10">
+                    <!-- Card 1 -->
+                    <div class="glass p-6 md:p-8 rounded-3xl group hover:border-blue-500/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row gap-6 items-start">
+                            <div class="w-14 h-14 shrink-0 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/30 group-hover:bg-blue-500/20 transition-colors shadow-inner">
+                                <i class="ph ph-google-logo text-2xl text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3" data-i18n="b1_title">Google Presence</h3>
+                                <p class="text-zinc-400 leading-relaxed text-sm md:text-base" data-i18n="b1_desc">When someone searches "Best shop near me", your business will show up at the top. This instantly builds credibility and drives footfall directly to your physical store.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass p-6 md:p-8 rounded-3xl group hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row gap-6 items-start">
+                            <div class="w-14 h-14 shrink-0 rounded-2xl bg-purple-500/10 flex items-center justify-center border border-purple-500/30 group-hover:bg-purple-500/20 transition-colors shadow-inner">
+                                <i class="ph ph-clock text-2xl text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3" data-i18n="b2_title">24/7 Open</h3>
+                                <p class="text-zinc-400 leading-relaxed text-sm md:text-base" data-i18n="b2_desc">Your physical shop might close at night, but your website never sleeps. Customers can browse your products and place orders 24 hours a day, 7 days a week.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass p-6 md:p-8 rounded-3xl group hover:border-green-500/40 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row gap-6 items-start">
+                            <div class="w-14 h-14 shrink-0 rounded-2xl bg-green-500/10 flex items-center justify-center border border-green-500/30 group-hover:bg-green-500/20 transition-colors shadow-inner">
+                                <i class="ph ph-rocket-launch text-2xl text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3" data-i18n="b3_title">Beat Competitors</h3>
+                                <p class="text-zinc-400 leading-relaxed text-sm md:text-base" data-i18n="b3_desc">Stand out from the crowd. By having a modern app or website, you position yourself as a premium brand, staying one step ahead of other shopkeepers in your area.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="glass p-6 md:p-8 rounded-3xl group hover:border-orange-500/40 hover:shadow-[0_0_30px_rgba(249,115,22,0.1)] transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row gap-6 items-start">
+                            <div class="w-14 h-14 shrink-0 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/30 group-hover:bg-orange-500/20 transition-colors shadow-inner">
+                                <i class="ph ph-notebook text-2xl text-orange-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3" data-i18n="b4_title">No More Paperwork</h3>
+                                <p class="text-zinc-400 leading-relaxed text-sm md:text-base" data-i18n="b4_desc">Say goodbye to messy registers. Effortlessly manage your daily bills, monitor live inventory, and track customer details directly from a simple dashboard on your phone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Swipeable Demo Section (With Visual UI Mockups) -->
+    <section id="demos" class="py-24 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-10 gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[11px] font-medium mb-3">
+                        <i class="ph ph-sparkle text-xs"></i>
+                        <span data-i18n="demo_badge">Concept Previews — Not Live Client Projects</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3" data-i18n="demo_title">See It In Action</h2>
+                    <p class="text-zinc-400" data-i18n="demo_subtitle">Swipe to see how your specific business will look as a premium app/website.</p>
+                </div>
+                <div class="hidden sm:flex gap-2">
+                    <button onclick="scrollDemos('left')" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition"><i class="ph ph-caret-left text-white text-lg"></i></button>
+                    <button onclick="scrollDemos('right')" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition"><i class="ph ph-caret-right text-white text-lg"></i></button>
+                </div>
+            </div>
+            
+            <!-- Horizontal Scroll Container -->
+            <div id="demoContainer" class="flex gap-6 overflow-x-auto hide-scroll snap-x snap-mandatory pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0">
+                
+                <!-- Demo 1: Kirana (App UI Mock) -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group relative">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-orange-500/50 transition-colors shadow-lg">
+                        <!-- App Header -->
+                        <div class="px-4 py-3 border-b border-white/10 flex justify-between items-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-orange-400">SuperMart</div>
+                            <div class="relative"><i class="ph ph-shopping-cart text-zinc-300"></i><span class="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full"></span></div>
+                        </div>
+                        <!-- App Body -->
+                        <div class="p-3 flex flex-col gap-3">
+                            <!-- Search -->
+                            <div class="w-full h-8 bg-[#27272a] rounded-lg flex items-center px-3 gap-2"><i class="ph ph-magnifying-glass text-zinc-500 text-xs"></i><span class="text-[10px] text-zinc-500" data-i18n="ui_search_kirana">Search Atta, Dal...</span></div>
+                            <!-- Grid -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-[#27272a] rounded-lg p-2 flex flex-col gap-1">
+                                    <div class="w-full h-12 bg-white/5 rounded flex items-center justify-center"><i class="ph ph-package text-zinc-600 text-xl"></i></div>
+                                    <span class="text-[10px] text-white font-medium truncate" data-i18n="ui_item1_kirana">Premium Atta 5kg</span>
+                                    <span class="text-[9px] text-orange-400">₹240</span>
+                                    <div class="w-full py-1 mt-1 bg-orange-500/20 text-orange-400 text-[10px] font-bold text-center rounded">Add +</div>
+                                </div>
+                                <div class="bg-[#27272a] rounded-lg p-2 flex flex-col gap-1">
+                                    <div class="w-full h-12 bg-white/5 rounded flex items-center justify-center"><i class="ph ph-basket text-zinc-600 text-xl"></i></div>
+                                    <span class="text-[10px] text-white font-medium truncate" data-i18n="ui_item2_kirana">Toor Dal 1kg</span>
+                                    <span class="text-[9px] text-orange-400">₹160</span>
+                                    <div class="w-full py-1 mt-1 bg-orange-500/20 text-orange-400 text-[10px] font-bold text-center rounded">Add +</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d1_title">Kirana & Supermarket</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d1_desc">Home delivery & inventory</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Demo 2: Mobile & Tech -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-blue-500/50 transition-colors shadow-lg">
+                        <div class="px-4 py-3 border-b border-white/10 flex justify-between items-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-blue-400 flex items-center gap-1"><i class="ph ph-device-mobile"></i> TechStore</div>
+                            <i class="ph ph-list text-zinc-300"></i>
+                        </div>
+                        <div class="p-3 flex flex-col gap-3">
+                            <!-- Banner -->
+                            <div class="w-full h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-3 flex flex-col justify-center">
+                                <span class="text-white text-[10px] font-bold">Iphone 15 Pro</span>
+                                <span class="text-white/70 text-[8px]" data-i18n="ui_banner_tech">Now Available in Store</span>
+                            </div>
+                            <!-- Categories -->
+                            <div class="flex gap-2">
+                                <div class="w-1/3 h-14 bg-[#27272a] rounded-lg flex flex-col items-center justify-center gap-1"><i class="ph ph-headphones text-zinc-400"></i><span class="text-[8px] text-zinc-400">Audio</span></div>
+                                <div class="w-1/3 h-14 bg-[#27272a] rounded-lg flex flex-col items-center justify-center gap-1"><i class="ph ph-wrench text-zinc-400"></i><span class="text-[8px] text-zinc-400" data-i18n="ui_cat_tech">Repair</span></div>
+                                <div class="w-1/3 h-14 bg-[#27272a] rounded-lg flex flex-col items-center justify-center gap-1"><i class="ph ph-watch text-zinc-400"></i><span class="text-[8px] text-zinc-400">Watches</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d2_title">Mobile & Electronics</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d2_desc">Product showcase & repairs</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Demo 3: Hardware -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-zinc-500/50 transition-colors shadow-lg">
+                        <div class="px-4 py-3 border-b border-white/10 flex justify-between items-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-zinc-300">Build-It Hardware</div>
+                        </div>
+                        <div class="p-3 flex flex-col gap-2">
+                            <!-- List Items -->
+                            <div class="w-full bg-[#27272a] rounded-lg p-2 flex items-center justify-between">
+                                <div class="flex items-center gap-2"><div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center"><i class="ph ph-wrench text-zinc-500"></i></div><span class="text-[10px] text-white">Power Drill 800W</span></div>
+                                <div class="px-2 py-1 bg-zinc-700 text-[9px] font-medium text-zinc-300 rounded" data-i18n="ui_btn_quote">Quote</div>
+                            </div>
+                            <div class="w-full bg-[#27272a] rounded-lg p-2 flex items-center justify-between">
+                                <div class="flex items-center gap-2"><div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center"><i class="ph ph-pipe text-zinc-500"></i></div><span class="text-[10px] text-white">PVC Pipe (Per Mtr)</span></div>
+                                <div class="px-2 py-1 bg-zinc-700 text-[9px] font-medium text-zinc-300 rounded" data-i18n="ui_btn_quote">Quote</div>
+                            </div>
+                            <div class="w-full bg-[#27272a] rounded-lg p-2 flex items-center justify-between">
+                                <div class="flex items-center gap-2"><div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center"><i class="ph ph-paint-brush text-zinc-500"></i></div><span class="text-[10px] text-white">Wall Paint 20L</span></div>
+                                <div class="px-2 py-1 bg-zinc-700 text-[9px] font-medium text-zinc-300 rounded" data-i18n="ui_btn_quote">Quote</div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d3_title">Hardware & Sanitary</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d3_desc">Bulk orders & catalog</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Demo 4: Electrician -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-yellow-500/50 transition-colors shadow-lg">
+                        <div class="px-4 py-3 border-b border-white/10 flex items-center justify-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-yellow-500">ProFix Services</div>
+                        </div>
+                        <div class="p-3 flex flex-col gap-3">
+                            <div class="flex items-center gap-3 bg-[#27272a] p-3 rounded-lg border border-yellow-500/20">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><i class="ph ph-user text-zinc-400"></i></div>
+                                <div class="flex flex-col gap-1"><span class="text-xs font-semibold text-white" data-i18n="ui_worker_name">Rahul (Expert)</span><span class="text-[10px] text-yellow-500" data-i18n="ui_worker_status">Available Now</span></div>
+                            </div>
+                            <div class="w-full py-2 bg-yellow-500 text-black text-xs font-bold text-center rounded-lg mt-1" data-i18n="ui_btn_book">Book Appointment</div>
+                            <div class="flex justify-between items-center px-1"><span class="text-[10px] text-zinc-400" data-i18n="ui_service_rate">Fan Installation</span> <span class="text-[10px] text-white font-medium">₹150</span></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d4_title">Electrician & Services</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d4_desc">Book appointments & rates</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Demo 5: Food -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-red-500/50 transition-colors shadow-lg">
+                        <div class="px-4 py-3 border-b border-white/10 flex justify-between items-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-red-400">TastyBites</div>
+                            <i class="ph ph-hamburger text-red-400"></i>
+                        </div>
+                        <div class="p-3 flex flex-col gap-3">
+                            <!-- Circular Menu -->
+                            <div class="flex gap-2 justify-between">
+                                <div class="flex flex-col items-center gap-1"><div class="w-10 h-10 rounded-full bg-white/5 border-2 border-red-500/50 flex items-center justify-center"><i class="ph ph-pizza text-zinc-400"></i></div><span class="text-[8px] text-white">Pizza</span></div>
+                                <div class="flex flex-col items-center gap-1"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center"><i class="ph ph-coffee text-zinc-400"></i></div><span class="text-[8px] text-white">Cafe</span></div>
+                                <div class="flex flex-col items-center gap-1"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center"><i class="ph ph-ice-cream text-zinc-400"></i></div><span class="text-[8px] text-white">Desert</span></div>
+                            </div>
+                            <!-- Featured Item -->
+                            <div class="w-full h-14 bg-[#27272a] rounded-lg flex items-center px-2 gap-3 relative overflow-hidden">
+                                <div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center"><i class="ph ph-fire text-orange-500"></i></div>
+                                <div class="flex flex-col gap-1"><span class="text-[10px] text-white font-medium">Cheese Pizza</span><span class="text-[9px] text-red-400">₹299</span></div>
+                                <div class="absolute right-2 bottom-2 px-2 py-0.5 bg-red-500/20 text-red-400 text-[9px] rounded font-bold" data-i18n="ui_btn_order">Order</div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d5_title">Food & Restaurant</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d5_desc">Digital menu & online orders</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Demo 6: Clothing -->
+                <div class="snap-center shrink-0 w-[280px] sm:w-[320px] glass rounded-3xl p-5 flex flex-col group">
+                    <div class="h-60 rounded-2xl mb-6 bg-[#18181b] border border-white/10 relative overflow-hidden flex flex-col group-hover:border-fuchsia-500/50 transition-colors shadow-lg">
+                        <div class="px-4 py-3 border-b border-white/10 text-center bg-[#27272a]">
+                            <div class="text-xs font-bold text-fuchsia-400 uppercase tracking-widest">StyleHub</div>
+                        </div>
+                        <div class="p-3 flex gap-2 h-full">
+                            <div class="w-1/2 h-full bg-[#27272a] rounded-xl relative overflow-hidden flex items-center justify-center group-hover:bg-fuchsia-900/20 transition-colors">
+                                <i class="ph ph-t-shirt text-3xl text-zinc-600"></i>
+                                <div class="absolute bottom-2 left-2 px-2 py-0.5 bg-white/10 backdrop-blur text-[8px] text-white rounded">View</div>
+                            </div>
+                            <div class="w-1/2 flex flex-col gap-2 h-full">
+                                <div class="w-full bg-[#27272a] rounded-lg flex-1 flex items-center justify-center"><i class="ph ph-sneaker text-xl text-zinc-600"></i></div>
+                                <div class="w-full bg-[#27272a] rounded-lg flex-1 flex items-center justify-center"><i class="ph ph-handbag text-xl text-zinc-600"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-1" data-i18n="d6_title">Clothing & Boutique</h3>
+                    <p class="text-sm text-zinc-400 mb-4" data-i18n="d6_desc">Trending gallery & shopping</p>
+                    <div class="mt-auto pt-4 border-t border-white/10">
+                        <a href="#contact" class="text-brand-400 font-medium text-sm flex items-center gap-1 hover:text-white transition">
+                            <span data-i18n="demo_btn">Get This For Your Shop</span> <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 bg-[#0a0a0c] border-t border-b border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="faq_title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden border border-white/10">
+                    <button class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-medium text-lg text-white" data-i18n="faq1_q">Will a website make me better than other local shops?</span>
+                        <i class="ph ph-caret-down text-zinc-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="pb-5 text-zinc-400 text-sm leading-relaxed" data-i18n="faq1_a">100% Yes! Today, before visiting a shop, people search on their phones. Having a website builds instant trust, and your brand looks much more premium compared to others.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden border border-white/10">
+                    <button class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-medium text-lg text-white" data-i18n="faq2_q">I don't know much about mobile/computers, can I use this?</span>
+                        <i class="ph ph-caret-down text-zinc-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="pb-5 text-zinc-400 text-sm leading-relaxed" data-i18n="faq2_a">Absolutely! I will build a system so easy for you that if you know how to use WhatsApp, you will easily manage your entire website and app without any help.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item glass rounded-2xl overflow-hidden border border-white/10">
+                    <button class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-medium text-lg text-white" data-i18n="faq3_q">Will my existing customers use it?</span>
+                        <i class="ph ph-caret-down text-zinc-400 faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="pb-5 text-zinc-400 text-sm leading-relaxed" data-i18n="faq3_a">Yes! You can share your website link with them on WhatsApp. They will be able to sit at home, browse your new stock, and place orders directly to your phone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Process Section (no fixed pricing yet — transparent process instead) -->
+    <section id="process" class="py-20 px-6 relative border-t border-white/5 bg-[#0a0a0c]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3" data-i18n="process_title">How We'll Work Together</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto" data-i18n="process_subtitle">Simple process, no confusing jargon. You focus on your shop, I handle the tech.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-3xl p-6">
+                    <div class="w-9 h-9 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center font-semibold text-sm mb-4">1</div>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process1_title">Tell Me About Your Business</h3>
+                    <p class="text-sm text-zinc-400" data-i18n="process1_desc">Message me below — takes 2 minutes. I'll understand what your shop actually needs, not a generic template pitch.</p>
+                </div>
+                <div class="glass rounded-3xl p-6">
+                    <div class="w-9 h-9 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center font-semibold text-sm mb-4">2</div>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process2_title">Free Chat & Clear Quote</h3>
+                    <p class="text-sm text-zinc-400" data-i18n="process2_desc">We talk on call or message. You get an upfront price for your exact requirement — no hidden costs, no pressure.</p>
+                </div>
+                <div class="glass rounded-3xl p-6">
+                    <div class="w-9 h-9 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center font-semibold text-sm mb-4">3</div>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process3_title">Build, Review & Launch</h3>
+                    <p class="text-sm text-zinc-400" data-i18n="process3_desc">I build it, you review it, we go live together. I'll also show you how to manage it yourself — as easy as using WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto glass rounded-[2.5rem] p-8 md:p-12 lg:p-16 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -z-10"></div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-8 relative z-10">
+                
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                            <span data-i18n="contact_title_1">Let's build something</span> <br>
+                            <span class="text-zinc-400" data-i18n="contact_title_2">great together.</span>
+                        </h2>
+                        <p class="text-zinc-400 mb-10 max-w-md text-lg" data-i18n="contact_desc">
+                            Fill out the form with your requirement, and I will get back to you immediately to discuss your project.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <a href="mailto:raise.inquiry@gmail.com" class="flex items-center gap-4 text-zinc-300 hover:text-white transition group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-brand-500/20 group-hover:border-brand-500/50 transition">
+                                <i class="ph ph-envelope-simple text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-zinc-500 font-medium">Email</p>
+                                <p class="text-lg font-medium">raise.inquiry@gmail.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://instagram.com/as_arpan" target="_blank" class="flex items-center gap-4 text-zinc-300 hover:text-white transition group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-pink-500/20 group-hover:border-pink-500/50 transition">
+                                <i class="ph ph-instagram-logo text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-zinc-500 font-medium">Instagram</p>
+                                <p class="text-lg font-medium">@as_arpan</p>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/as-arpan" target="_blank" class="flex items-center gap-4 text-zinc-300 hover:text-white transition group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-blue-600/20 group-hover:border-blue-600/50 transition">
+                                <i class="ph ph-linkedin-logo text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-zinc-500 font-medium">LinkedIn</p>
+                                <p class="text-lg font-medium">as-arpan</p>
+                            </div>
+                        </a>
+
+                        <a href="https://iarpann.netlify.app" target="_blank" class="flex items-center gap-4 text-zinc-300 hover:text-white transition group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-green-500/20 group-hover:border-green-500/50 transition">
+                                <i class="ph ph-globe text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-zinc-500 font-medium" data-i18n="contact_other_site">My Other Portfolio</p>
+                                <p class="text-lg font-medium">iarpann.netlify.app</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="chat-window rounded-3xl overflow-hidden shadow-2xl">
+                    <!-- Chat header -->
+                    <div class="chat-header flex items-center gap-3 px-5 py-4 border-b border-white/5">
+                        <div class="relative shrink-0">
+                            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center font-bold text-white text-lg">A</div>
+                            <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#17251f]"></span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Arpan Singh</p>
+                            <p class="text-green-400/80 text-xs" data-i18n="chat_status">Online · Replies personally</p>
+                        </div>
+                    </div>
+
+                    <!-- Decorative intro bubbles -->
+                    <div class="px-5 pt-5 pb-2 space-y-2.5">
+                        <div class="chat-bubble-in px-4 py-2.5 text-sm text-zinc-200" data-i18n="chat_msg1">
+                            Namaste! 👋 Apna business digital banane ke liye bas kuch details bata do — reply jald milega.
+                        </div>
+                        <div class="chat-bubble-in px-3 py-2.5 inline-flex items-center gap-1.5">
+                            <span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="px-5 pb-5 pt-2 space-y-3">
+                        <!-- Honeypot — hidden from real users, catches basic bots -->
+                        <div class="hp-field" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label for="bizType" class="block text-[11px] font-medium text-zinc-500 mb-1.5" data-i18n="form_label_biztype">Business Type</label>
+                                <select id="bizType" required class="chat-input-row w-full px-3 py-2.5 rounded-xl text-sm outline-none">
+                                    <option value="" data-i18n="opt_select">Select...</option>
+                                    <option data-i18n="opt_kirana">Kirana / Grocery</option>
+                                    <option data-i18n="opt_restaurant">Restaurant / Food</option>
+                                    <option data-i18n="opt_clinic">Clinic / Salon</option>
+                                    <option data-i18n="opt_repair">Mobile / Repair Shop</option>
+                                    <option data-i18n="opt_clothing">Clothing / Boutique</option>
+                                    <option data-i18n="opt_other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="budget" class="block text-[11px] font-medium text-zinc-500 mb-1.5" data-i18n="form_label_budget">Budget in Mind</label>
+                                <select id="budget" class="chat-input-row w-full px-3 py-2.5 rounded-xl text-sm outline-none">
+                                    <option value="" data-i18n="opt_notsure">Not sure yet</option>
+                                    <option data-i18n="opt_budget1">Under ₹5,000</option>
+                                    <option data-i18n="opt_budget2">₹5,000 – ₹15,000</option>
+                                    <option data-i18n="opt_budget3">₹15,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="name" class="block text-[11px] font-medium text-zinc-500 mb-1.5" data-i18n="form_label_name">Your Name / Shop Name</label>
+                            <input type="text" id="name" required placeholder="Ex: Rahul Kumar"
+                                class="chat-input-row w-full px-4 py-2.5 rounded-xl text-sm placeholder-zinc-600 outline-none">
+                        </div>
+
+                        <div>
+                            <label for="contactInfo" class="block text-[11px] font-medium text-zinc-500 mb-1.5" data-i18n="form_label_phone">Mobile Number</label>
+                            <input type="tel" id="contactInfo" required placeholder="98765 43210" pattern="[0-9+\-\s]{8,15}"
+                                class="chat-input-row w-full px-4 py-2.5 rounded-xl text-sm placeholder-zinc-600 outline-none">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-[11px] font-medium text-zinc-500 mb-1.5" data-i18n="form_label_msg">Your Message</label>
+                            <div class="flex items-end gap-2">
+                                <textarea id="message" required rows="2" placeholder="Ex: Mujhe apni dukaan ke liye app chahiye..."
+                                    class="chat-input-row flex-1 px-4 py-3 rounded-2xl text-sm placeholder-zinc-600 outline-none resize-none"></textarea>
+                                <button type="submit" id="submitBtn"
+                                    class="chat-send-btn w-12 h-12 shrink-0 rounded-full flex items-center justify-center text-white shadow-lg" aria-label="Send message">
+                                    <i id="btnIcon" class="ph ph-paper-plane-right text-xl"></i>
+                                    <i id="btnLoader" class="ph ph-spinner-gap animate-spin hidden text-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-zinc-600 text-center pt-1" data-i18n="form_note">Message aata hai seedha mujhe — koi app download ya signup nahi chahiye.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-zinc-500 border-t border-white/5 text-sm space-y-1">
+        <p data-i18n="footer_privacy">Aapki details sirf aapse contact karne ke liye use hoti hain, kahin share nahi ki jaati.</p>
+        <p>© <span id="footerYear">2026</span> Arpan Singh. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-24 opacity-0 transition-all duration-300 z-50 pointer-events-none">
+        <div class="bg-green-500/10 border border-green-500/20 backdrop-blur-md px-6 py-4 rounded-2xl flex items-center gap-3 shadow-lg">
+            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                <i class="ph ph-check-circle text-green-400 text-xl"></i>
+            </div>
+            <div>
+                <p class="text-white font-medium text-sm" data-i18n="toast_success">Message Sent Successfully!</p>
+                <p class="text-green-200/70 text-xs mt-0.5" data-i18n="toast_desc">I will contact you very soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- TRANSLATION DICTIONARY (EN & PURE HINDI / DEVANAGARI) ---
+        const translations = {
+            en: {
+                nav_contact: "Let's Talk",
+                hero_badge: "Available for new projects",
+                hero_title_1: "Taking Your Local Business",
+                hero_title_2: "To The Digital World.",
+                hero_desc: "Hi, I'm <strong class='text-white font-medium'>Arpan Singh</strong>. I make it easy for anyone to take their business online. Whether you own a shop, a clinic, or want to start a company, I build beautiful websites and apps that your customers will love. <strong class='text-zinc-200'>No technical knowledge required from your side!</strong>",
+                btn_contact: "Contact Me",
+                btn_portfolio: "View My Other Website",
+                
+                benefits_title: "How Your Business Evolves",
+                benefits_subtitle: "Understand the real-world advantages of having a digital presence, designed to make your daily operations smoother and highly profitable.",
+                b1_title: "Google Presence",
+                b1_desc: "When someone searches 'Best shop near me', your business will show up at the top. This instantly builds credibility and drives footfall directly to your physical store.",
+                b2_title: "24/7 Open",
+                b2_desc: "Your physical shop might close at night, but your website never sleeps. Customers can browse your products and place orders 24 hours a day, 7 days a week.",
+                b3_title: "Beat Competitors",
+                b3_desc: "Stand out from the crowd. By having a modern app or website, you position yourself as a premium brand, staying one step ahead of other shopkeepers in your area.",
+                b4_title: "No More Paperwork",
+                b4_desc: "Say goodbye to messy registers. Effortlessly manage your daily bills, monitor live inventory, and track customer details directly from a simple dashboard on your phone.",
+                
+                demo_title: "See It In Action",
+                demo_subtitle: "Swipe to see how your specific business will look as a premium app/website.",
+                d1_title: "Kirana & Supermarket",
+                d1_desc: "Home delivery & inventory",
+                d2_title: "Mobile & Electronics",
+                d2_desc: "Product showcase & repairs",
+                d3_title: "Hardware & Sanitary",
+                d3_desc: "Bulk orders & catalog",
+                d4_title: "Electrician & Services",
+                d4_desc: "Book appointments & rates",
+                d5_title: "Food & Restaurant",
+                d5_desc: "Digital menu & online orders",
+                d6_title: "Clothing & Boutique",
+                d6_desc: "Trending gallery & shopping",
+                demo_btn: "Get This For Your Shop",
+                demo_badge: "Concept Previews — Not Live Client Projects",
+
+                process_title: "How We'll Work Together",
+                process_subtitle: "Simple process, no confusing jargon. You focus on your shop, I handle the tech.",
+                process1_title: "Tell Me About Your Business",
+                process1_desc: "Message me below — takes 2 minutes. I'll understand what your shop actually needs, not a generic template pitch.",
+                process2_title: "Free Chat & Clear Quote",
+                process2_desc: "We talk on call or message. You get an upfront price for your exact requirement — no hidden costs, no pressure.",
+                process3_title: "Build, Review & Launch",
+                process3_desc: "I build it, you review it, we go live together. I'll also show you how to manage it yourself — as easy as using WhatsApp.",
+
+                ui_search_kirana: "Search Atta, Dal...",
+                ui_item1_kirana: "Premium Atta 5kg",
+                ui_item2_kirana: "Toor Dal 1kg",
+                ui_banner_tech: "Now Available in Store",
+                ui_cat_tech: "Repair",
+                ui_btn_quote: "Quote",
+                ui_worker_name: "Rahul (Expert)",
+                ui_worker_status: "Available Now",
+                ui_btn_book: "Book Appointment",
+                ui_service_rate: "Fan Installation",
+                ui_btn_order: "Order",
+
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "Will a website make me better than other local shops?",
+                faq1_a: "100% Yes! Today, before visiting a shop, people search on their phones. Having a website builds instant trust, and your brand looks much more premium compared to others.",
+                faq2_q: "I don't know much about mobile/computers, can I use this?",
+                faq2_a: "Absolutely! I will build a system so easy for you that if you know how to use WhatsApp, you will easily manage your entire website and app without any help.",
+                faq3_q: "Will my existing customers use it?",
+                faq3_a: "Yes! You can share your website link with them on WhatsApp. They will be able to sit at home, browse your new stock, and place orders directly to your phone.",
+                
+                contact_title_1: "Let's build something",
+                contact_title_2: "great together.",
+                contact_desc: "Fill out the form with your requirement, and I will get back to you immediately to discuss your project.",
+                contact_other_site: "My Other Portfolio",
+                
+                form_title: "Send an Inquiry",
+                form_label_name: "Your Name / Shop Name",
+                form_label_phone: "Mobile Number",
+                form_label_msg: "Your Message",
+                form_btn: "Send Message",
+
+                chat_status: "Online · Replies personally",
+                chat_msg1: "Hey there! 👋 Just share a few quick details about your business — I'll reply soon.",
+                form_label_biztype: "Business Type",
+                form_label_budget: "Budget in Mind",
+                opt_select: "Select...",
+                opt_kirana: "Kirana / Grocery",
+                opt_restaurant: "Restaurant / Food",
+                opt_clinic: "Clinic / Salon",
+                opt_repair: "Mobile / Repair Shop",
+                opt_clothing: "Clothing / Boutique",
+                opt_other: "Other",
+                opt_notsure: "Not sure yet",
+                opt_budget1: "Under ₹5,000",
+                opt_budget2: "₹5,000 – ₹15,000",
+                opt_budget3: "₹15,000+",
+                form_note: "Your message comes straight to me — no app download or signup needed.",
+                footer_privacy: "Your details are only used to contact you back — never shared with anyone.",
+
+                toast_success: "Message Sent Successfully!",
+                toast_desc: "I will contact you very soon."
+            },
+            hi: {
+                nav_contact: "हमसे जुड़ें",
+                hero_badge: "नए प्रोजेक्ट के लिए उपलब्ध",
+                hero_title_1: "आपके स्थानीय व्यापार का",
+                hero_title_2: "अब नया डिजिटल रूप।",
+                hero_desc: "नमस्ते, मैं <strong class='text-white font-medium'>अर्पण सिंह</strong> हूँ। मैं आपके व्यापार को इंटरनेट पर लाना बेहद आसान बनाता हूँ। चाहे आपकी किराने की दुकान हो, क्लिनिक हो या कोई कंपनी, मैं ऐसे शानदार डिजिटल प्लेटफॉर्म बनाता हूँ जो आपके ग्राहकों को बहुत पसंद आएंगे। <strong class='text-zinc-200'>इसके लिए आपको किसी तकनीकी ज्ञान की आवश्यकता नहीं है!</strong>",
+                btn_contact: "संपर्क करें",
+                btn_portfolio: "मेरा अन्य कार्य देखें",
+                
+                benefits_title: "आपका व्यापार कैसे बदलेगा?",
+                benefits_subtitle: "समझिए कि एक आधुनिक डिजिटल पहचान आपके दैनिक कार्यों को कैसे आसान बनाती है और आपके मुनाफे को कैसे बढ़ाती है, बिना किसी अतिरिक्त दबाव के।",
+                b1_title: "गूगल पर आपकी पहचान",
+                b1_desc: "जब कोई ग्राहक 'मेरे आस-पास सर्वश्रेष्ठ दुकान' खोजेगा, तो आपका व्यवसाय सबसे ऊपर दिखाई देगा। यह ग्राहकों का सीधा विश्वास जीतता है और उन्हें आपकी दुकान तक लाता है।",
+                b2_title: "दिन-रात खुली दुकान",
+                b2_desc: "आपकी वास्तविक दुकान रात में बंद हो सकती है, लेकिन आपका डिजिटल प्लेटफॉर्म चौबीसों घंटे काम करेगा। ग्राहक रात में भी आपके उत्पाद देख सकते हैं और ऑर्डर दे सकते हैं।",
+                b3_title: "प्रतिस्पर्धियों से एक कदम आगे",
+                b3_desc: "बाजार की भीड़ से अलग दिखें। अपने स्वयं के एप्लिकेशन के साथ, आप एक प्रतिष्ठित ब्रांड बनते हैं और अपने क्षेत्र के अन्य दुकानदारों से हमेशा आगे रहते हैं।",
+                b4_title: "कागजी झंझट से मुक्ति",
+                b4_desc: "रजिस्टर और पर्चियों को भूल जाइए। अपने दैनिक बिल, सामान की जानकारी और ग्राहकों का विवरण सीधे अपने फोन से बहुत ही आसानी से प्रबंधित करें।",
+                
+                demo_title: "इसे लाइव अनुभव करें",
+                demo_subtitle: "स्वाइप करके देखें कि आपका व्यवसाय एक प्रीमियम एप्लिकेशन के रूप में कैसा दिखेगा।",
+                d1_title: "किराना और सुपरमार्केट",
+                d1_desc: "होम डिलीवरी और सामान प्रबंधन",
+                d2_title: "मोबाइल और इलेक्ट्रॉनिक्स",
+                d2_desc: "उत्पाद प्रदर्शन और सेवा बुकिंग",
+                d3_title: "हार्डवेयर और सैनिटरी",
+                d3_desc: "थोक ऑर्डर और डिजिटल कैटलॉग",
+                d4_title: "इलेक्ट्रीशियन और सेवाएं",
+                d4_desc: "बुकिंग और सेवा सूची",
+                d5_title: "भोजन और रेस्टोरेंट",
+                d5_desc: "डिजिटल मेनू और त्वरित ऑर्डर",
+                d6_title: "कपड़े और बुटीक",
+                d6_desc: "नवीनतम फैशन और इंटरनेट खरीदारी",
+                demo_btn: "अपने व्यापार के लिए चुनें",
+                demo_badge: "कॉन्सेप्ट प्रीव्यू — असली क्लाइंट प्रोजेक्ट नहीं",
+
+                process_title: "हम साथ कैसे काम करेंगे",
+                process_subtitle: "आसान प्रक्रिया, कोई उलझन नहीं। आप अपनी दुकान पर ध्यान दें, टेक्निकल काम मैं संभालूंगा।",
+                process1_title: "अपने व्यापार के बारे में बताएं",
+                process1_desc: "नीचे मैसेज करें — बस 2 मिनट लगेंगे। मैं समझूंगा कि आपकी दुकान को असल में क्या चाहिए, कोई टेम्पलेट पिच नहीं।",
+                process2_title: "मुफ्त बातचीत और स्पष्ट कीमत",
+                process2_desc: "हम कॉल या मैसेज पर बात करेंगे। आपको अपनी जरूरत के हिसाब से साफ कीमत मिलेगी — कोई छिपा हुआ खर्च नहीं, कोई दबाव नहीं।",
+                process3_title: "बनाना, रिव्यू और लॉन्च",
+                process3_desc: "मैं इसे बनाऊंगा, आप रिव्यू करेंगे, फिर साथ में लाइव करेंगे। मैं आपको यह भी सिखाऊंगा कि इसे खुद कैसे चलाना है — व्हाट्सएप जितना आसान।",
+
+                ui_search_kirana: "आटा, दाल खोजें...",
+                ui_item1_kirana: "प्रीमियम आटा 5kg",
+                ui_item2_kirana: "तुअर दाल 1kg",
+                ui_banner_tech: "दुकान में उपलब्ध",
+                ui_cat_tech: "रिपेयर",
+                ui_btn_quote: "रेट लें",
+                ui_worker_name: "राहुल (कारीगर)",
+                ui_worker_status: "अभी उपलब्ध",
+                ui_btn_book: "बुक करें",
+                ui_service_rate: "पंखा लगाना",
+                ui_btn_order: "ऑर्डर करें",
+                
+                faq_title: "सामान्य प्रश्न",
+                faq1_q: "क्या इंटरनेट पर आने से मैं अन्य स्थानीय दुकानों से बेहतर बन जाऊंगा?",
+                faq1_a: "शत-प्रतिशत हाँ! आज किसी भी दुकान पर जाने से पहले लोग अपने फोन पर खोज करते हैं। इंटरनेट उपस्थिति से तुरंत विश्वास बनता है, और आपका ब्रांड दूसरों की तुलना में बहुत अधिक प्रतिष्ठित दिखता है।",
+                faq2_q: "मुझे फोन या कंप्यूटर की अधिक जानकारी नहीं है, क्या मैं इसे चला पाऊंगा?",
+                faq2_a: "बिल्कुल! मैं आपके लिए एक ऐसी प्रणाली बनाऊंगा जो इतनी आसान होगी कि यदि आप व्हाट्सएप का उपयोग करना जानते हैं, तो आप बिना किसी मदद के अपने पूरे सिस्टम को आसानी से चला सकेंगे।",
+                faq3_q: "क्या मेरे मौजूदा ग्राहक इसका उपयोग करेंगे?",
+                faq3_a: "हाँ! आप उनके साथ व्हाट्सएप पर अपना लिंक साझा कर सकते हैं। वे घर बैठे आपका नया सामान देख सकेंगे और सीधे आपके फोन पर ऑर्डर दे सकेंगे।",
+                
+                contact_title_1: "आइए मिलकर कुछ",
+                contact_title_2: "बेहतरीन बनाएं।",
+                contact_desc: "अपनी आवश्यकता के साथ फॉर्म भरें, और मैं आपके कार्य पर चर्चा करने के लिए तुरंत आपसे संपर्क करूंगा।",
+                contact_other_site: "मेरा अन्य कार्य (पोर्टफोलियो)",
+                
+                form_title: "पूछताछ भेजें",
+                form_label_name: "आपका नाम / दुकान का नाम",
+                form_label_phone: "मोबाइल नंबर",
+                form_label_msg: "आपका संदेश",
+                form_btn: "संदेश भेजें",
+
+                chat_status: "ऑनलाइन · मैं खुद जवाब देता हूँ",
+                chat_msg1: "नमस्ते! 👋 अपने व्यापार के बारे में बस कुछ जानकारी दें — जल्द जवाब मिलेगा।",
+                form_label_biztype: "व्यापार का प्रकार",
+                form_label_budget: "बजट (अनुमानित)",
+                opt_select: "चुनें...",
+                opt_kirana: "किराना / ग्रोसरी",
+                opt_restaurant: "रेस्टोरेंट / फूड",
+                opt_clinic: "क्लिनिक / सैलून",
+                opt_repair: "मोबाइल / रिपेयर शॉप",
+                opt_clothing: "कपड़े / बुटीक",
+                opt_other: "अन्य",
+                opt_notsure: "अभी तय नहीं",
+                opt_budget1: "₹5,000 से कम",
+                opt_budget2: "₹5,000 – ₹15,000",
+                opt_budget3: "₹15,000+",
+                form_note: "आपका संदेश सीधे मुझे मिलता है — कोई ऐप डाउनलोड या साइनअप नहीं चाहिए।",
+                footer_privacy: "आपकी जानकारी सिर्फ आपसे संपर्क करने के लिए इस्तेमाल होती है — कहीं और साझा नहीं की जाती।",
+
+                toast_success: "संदेश सफलतापूर्वक भेजा गया!",
+                toast_desc: "मैं बहुत जल्द आपसे संपर्क करूंगा।"
+            }
+        };
+
+        let currentLanguage = 'hi'; // Default Hindi — matches the primary audience (local shopkeepers)
+
+        function applyTranslations() {
+            // Update button text
+            document.getElementById('currentLang').innerText = currentLanguage === 'en' ? 'English' : 'हिंदी';
+
+            // Update all elements with data-i18n attribute
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLanguage][key]) {
+                    el.innerHTML = translations[currentLanguage][key];
+                }
+            });
+
+            // Update placeholders manually
+            document.getElementById('name').placeholder = currentLanguage === 'en' ? 'Ex: Rahul Kumar' : 'उदाहरण: राहुल कुमार';
+            document.getElementById('message').placeholder = currentLanguage === 'en' ? 'Ex: I want an app for my store...' : 'उदाहरण: मुझे अपनी दुकान के लिए एक ऐप चाहिए...';
+
+            document.documentElement.lang = currentLanguage;
+        }
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            applyTranslations();
+        }
+
+        // Apply default language and footer year on load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations();
+            const yearEl = document.getElementById('footerYear');
+            if (yearEl) yearEl.innerText = new Date().getFullYear();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-[#09090b]/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+            } else {
+                nav.classList.remove('bg-[#09090b]/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+            }
+        });
+
+        // Demo Slider Scroll Logic
+        function scrollDemos(direction) {
+            const container = document.getElementById('demoContainer');
+            const scrollAmount = 320; // card width + gap
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                if(faq !== item) faq.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        // Lead Submission Logic
+        // The real Discord webhook URL lives server-side in netlify/functions/submit-lead.js —
+        // it is never sent to the browser, so it can't be copied out of DevTools.
+        const formLoadTime = Date.now();
+        const MIN_FILL_SECONDS = 3; // real humans take longer than this to fill the form
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const btn = document.getElementById('submitBtn');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnLoader = document.getElementById('btnLoader');
+            const toast = document.getElementById('toast');
+
+            // Honeypot check — real visitors never see or fill this field
+            const honeypot = document.getElementById('website').value;
+            const secondsToFill = (Date.now() - formLoadTime) / 1000;
+            if (honeypot || secondsToFill < MIN_FILL_SECONDS) {
+                // Silently "succeed" without sending anything — don't tip off bots
+                toast.classList.remove('translate-y-24', 'opacity-0');
+                form.reset();
+                setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 4000);
+                return;
+            }
+
+            const payload = {
+                bizType: document.getElementById('bizType').value,
+                budget: document.getElementById('budget').value,
+                name: document.getElementById('name').value,
+                contactInfo: document.getElementById('contactInfo').value,
+                message: document.getElementById('message').value
+            };
+
+            btn.disabled = true;
+            btnIcon.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+
+            try {
+                const response = await fetch('/.netlify/functions/submit-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    toast.classList.remove('translate-y-24', 'opacity-0');
+                    form.reset();
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-24', 'opacity-0');
+                    }, 4000);
+                } else {
+                    alert(currentLanguage === 'en'
+                        ? 'There was an issue sending your message. Please try again, or reach out on the contact links above.'
+                        : 'Message bhejne mein dikkat hui. Dobara try karein, ya upar diye contact links use karein.');
+                }
+            } catch (error) {
+                console.error("Lead submission error:", error);
+                alert(currentLanguage === 'en'
+                    ? 'Network error. Could not connect to the server.'
+                    : 'Network error. Server se connect nahi ho paya.');
+            } finally {
+                btn.disabled = false;
+                btnIcon.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
